@@ -21,14 +21,10 @@ the condition, it is a time to make a actual custom Find*.cmake file.
 
 #]=======================================================================]
 
-if(CMAKE_VERSION LESS 3.10)
-    if(INCLUDED_DEFINE_FIND_PACKAGE2)
-        return()
-    endif()
-    set(INCLUDED_DEFINE_FIND_PACKAGE2 TRUE)
-else()
-    include_guard(GLOBAL)
+if(__INCLUDED_DEFINE_FIND_PACKAGE2__)
+    return()
 endif()
+set(__INCLUDED_DEFINE_FIND_PACKAGE2__ TRUE)
 include(FindPackageMessage)
 include(FindPackageHandleStandardArgs)
 
