@@ -1,3 +1,26 @@
+# Distributed under OSI approved BSD-3 style License.  See accompanying
+# file Copyright.txt.
+
+#[=======================================================================[.rst:
+DefineFindPackage2
+------------------
+
+Define `find_pacakge2()` which has similar functionality as `find_package`
+and `define_find_pacakge2()` that declare package properties to find.
+
+`find_package2(<pkgname>)` returns `<Upper-case pkgname>_FOUND`,
+`<Upper-case pkgname>_LIBRARIES` and `<Upper-case pkgname>_INCLUDE_DIRS'
+variables. And also set imported Target `<Upper-case pkgname>::<pkgname>`.
+
+`find_package2()` accept two options, `QUIET` and `REQUIRED`.
+There is no support for `VERSION` and `COMPOENNTS`.
+
+This script only support package that has only one library name and
+single directory for include files. If your target is supposed not as
+the condition, it is a time to make a actual custom Find*.cmake file.
+
+#]=======================================================================]
+
 if(CMAKE_VERSION LESS 3.10)
     if(INCLUDED_DEFINE_FIND_PACKAGE2)
         return()
