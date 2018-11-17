@@ -1,4 +1,4 @@
-if(CMAKE_VERSION LESS 3.9)
+if(CMAKE_VERSION LESS 3.10)
     if(INCLUDED_DEFINE_FIND_PACKAGE2)
         return()
     endif()
@@ -9,17 +9,25 @@ endif()
 include(FindPackageMessage)
 include(FindPackageHandleStandardArgs)
 
-macro(define_find_package2 pkgname include_file library_name)
+function(define_find_package2 pkgname include_file library_name)
     get_property(DEFINE_FIND_PACKAGE_DEFINED GLOBAL PROPERTY define_find_pacakge_pkgname DEFINED)
     if(NOT DEFINE_FIND_PACKAGE_DEFINED)
-        define_property(GLOBAL PROPERTY define_find_package_pkgname BRIEF_DOCS "aa" FULL_DOCS "a")
-        define_property(GLOBAL PROPERTY define_find_package_include_file BRIEF_DOCS "aj" FULL_DOCS "a")
-        define_property(GLOBAL PROPERTY define_find_package_library_name BRIEF_DOCS "a" FULL_DOCS "a")
+        define_property(GLOBAL PROPERTY define_find_package_pkgname
+                        BRIEF_DOCS "list of package names which is defined with define_find_package2"
+                        FULL_DOCS "list of package names which is defined with define_find_package2.")
+        define_property(GLOBAL PROPERTY define_find_package_include_file
+                        BRIEF_DOCS "list of include file names which is defined with define_find_package2"
+                        FULL_DOCS "list of include file names which is defined with define_find_package2."
+                                  "An order should be as same as define_find_package_pkgname.")
+        define_property(GLOBAL PROPERTY define_find_package_library_name
+                        BRIEF_DOCS "list of library  names which is defined with define_find_package2"
+                        FULL_DOCS "list of library  names which is defined with define_find_package2."
+                                  "An order should be as same as define_find_package_pkgname.")
     endif()
     set_property(GLOBAL APPEND PROPERTY define_find_package_pkgname ${pkgname})
     set_property(GLOBAL APPEND PROPERTY define_find_package_include_file ${include_file})
     set_property(GLOBAL APPEND PROPERTY define_find_package_library_name ${library_name})
-endmacro()
+endfunction()
 
 function(find_package2 pkgname)
     if(ARGC GREATER 2)
