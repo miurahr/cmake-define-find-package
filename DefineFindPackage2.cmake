@@ -7,6 +7,7 @@ else()
     include_guard(GLOBAL)
 endif()
 include(FindPackageMessage)
+include(FindPackageHandleStandardArgs)
 
 macro(define_find_package2 pkgname include_file library_name)
     get_property(DEFINE_FIND_PACKAGE_DEFINED GLOBAL PROPERTY define_find_pacakge_pkgname DEFINED)
