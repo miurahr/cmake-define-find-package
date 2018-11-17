@@ -14,6 +14,8 @@ in your `CMakeLists.txt` by setting `CMAKE_MODULE_PATH` variable.
 5. You can get `<Upper-case name>::<name>` imported target as well as
    `<name>_FOUND`, `<name>_LIBRARIES` and `<name>_INCLUDE_DIRS`.
 
+  Please see an example project in `example-project` directory for details.
+
 ## License
 
 This is distributed under OSI-Approved 3-Clause BSD license.

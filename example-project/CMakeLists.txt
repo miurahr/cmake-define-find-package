@@ -1,6 +1,6 @@
 cmake_minimum_required (VERSION 3.0)
 project(example VERSION 1.0 LANGUAGES C)
-include(${CMAKE_CURRENT_LIST_DIR}/DefineFindPackage2.cmake)
+include(${CMAKE_CURRENT_LIST_DIR}/../DefineFindPackage2.cmake)
 
 # Define as same functionality as FindZSTD.cmake with one line configuration
 define_find_package2(ZSTD zstd.h zstd)
